@@ -329,15 +329,15 @@ menu "RoboMaster Modules"
     
     config BSP_USING_RC_SBUS
         bool "Enable RC SBUS"
-        default n
+        default y
 
     config BSP_USING_RC_DBUS
         bool "Enable RC DBUS"
-        default y
+        default n
 
     config BSP_USING_RC_KEYBOARD
         bool "Enable RC KEYBOARD"
-        default y
+        default n
 
     config BSP_USING_REFEREE
         bool "Enable REFEREE"
@@ -401,10 +401,6 @@ menu "RoboMaster Tasks"
                 bool "Select Chassis Mecanum Mode"
                 default n
         endif
-
-    config BSP_USING_TRANSMISSION_TASK
-        bool "Select USING Transmission Task"
-        default n
 
     config BSP_USING_SHOOT_TASK
         bool "Select USING Shoot Task"
