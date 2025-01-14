@@ -93,22 +93,7 @@
 /*M2006转动一圈对应丝杆走过长度为2mm*/
 #define ANGLE_TO_DISTANCE 0.002f
 
-/* 底盘旋转最大速度，单位是度每秒 */
-#define MAX_CHASSIS_VR_SPEED 8
 
-/******** SBUS底盘小陀螺相关设置 *******/
-/** 旋转速度=遥控器ch5值/功率限制比例 **/
-/* 功率限制比例 */
-#define SBUS_ROTATE_LIMIT_RATIO 784.0 * 5.0
-
-/******** DBUS底盘小陀螺相关设置 *******/
-/** 旋转速度=截距+倍率*底盘功率限制/功率限制比例 **/
-/* 旋转速度截距 */
-#define ROTATE_INTERCEPT 4.5
-/* 旋转速度倍率 */
-#define ROTATE_MULTIPLIER 2
-/* 功率限制比例 */
-#define ROTATE_LIMIT_RATIO 60
 
 /* --------------------------------- 底盘PID参数 -------------------------------- */
 /* 电机速度环 */

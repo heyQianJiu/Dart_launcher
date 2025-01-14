@@ -31,12 +31,10 @@
 #ifdef BSP_USING_CHASSIS_TASK
 #include "chassis_task.h"
 #endif /* BSP_USING_CHASSIS_TASK */
-#ifdef BSP_USING_GIMBAL_TASK
-#include "gimbal_task.h"
-#endif /* BSP_USING_GIMBAL_TASK */
-#ifdef BSP_USING_TRANSMISSION_TASK
-#include "transmission_task.h"
-#endif /* BSP_USING_TRANSMISSION_TASK */
+
+// #ifdef BSP_USING_TRANSMISSION_TASK
+// #include "transmission_task.h"
+// #endif /* BSP_USING_TRANSMISSION_TASK */
 #ifdef BSP_USING_SHOOT_TASK
 #include "shoot_task.h"
 #endif /* BSP_USING_SHOOT_TASK */
