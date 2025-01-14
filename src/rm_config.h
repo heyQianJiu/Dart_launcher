@@ -93,46 +93,20 @@
 /*M2006转动一圈对应丝杆走过长度为2mm*/
 #define ANGLE_TO_DISTANCE 0.002f
 
-
-
-/* --------------------------------- 底盘PID参数 -------------------------------- */
-/* 电机速度环 */
-#define CHASSIS_KP_V_MOTOR              6
-#define CHASSIS_KI_V_MOTOR              0
-#define CHASSIS_KD_V_MOTOR              0.0001
-#define CHASSIS_INTEGRAL_V_MOTOR        2000
-#define CHASSIS_MAX_V_MOTOR             16000
-
-
-/* ---------------------------------- 云台相关 ---------------------------------- */
 #define YAW_MOTOR_ID     0x208
 #define PITCH_MOTOR_ID   0x207
 
-/*云台编码器归中*/
-//#define GIMBAL_SIDEWAYS
-#ifdef GIMBAL_SIDEWAYS
-#define SIDEWAYS_ANGLE   36
-/* 云台yaw轴编码器归中值(侧身) */
-#define CENTER_ECD_YAW   3818
-#else
-/* 云台yaw轴编码器归中值 */
-#define CENTER_ECD_YAW   7913
-#define SIDEWAYS_ANGLE   0
-#endif
-
-/* 云台pitch轴编码器归中值 */
-#define CENTER_ECD_PITCH 2717
 /* pitch轴最大仰角 */
 #define PIT_ANGLE_MAX    30.0f
 /* pitch轴最大俯角 */
-#define PIT_ANGLE_MIN    -20.0f
+#define PIT_ANGLE_MIN    45.0f
 
-/* 云台控制周期 (ms) */
-#define GIMBAL_PERIOD 1
-/* 云台回中初始化时间 (ms) */
-#define BACK_CENTER_TIME 100
+// /* 云台控制周期 (ms) */
+// #define GIMBAL_PERIOD 1
+// /* 云台回中初始化时间 (ms) */
+// #define BACK_CENTER_TIME 100
 
-/* -------------------------------- 云台电机PID参数 ------------------------------- */
+/* -------------------------------- 底盘电机PID参数 ------------------------------- */
 /* 云台yaw轴电机PID参数 */
 #define YAW_KP_V             6//10000
 #define YAW_KI_V             0//0.5
@@ -164,14 +138,7 @@
 #define SBUS_FRICTION_AUTO_SPEED_L 3500
 #define SBUS_FRICTION_AUTO_SPEED_H 7000
 
-/** DBUS遥控器发射速度 **/
-#define DBUS_FRICTION_LAUNCH_SPEED 7000
-#define DBUS_SHOOT_REVERSE_SPEED 3000
-/** COUNTINUE模式参数 **/
-#define DBUS_FRICTION_AUTO_SPEED_L 3500
-#define DBUS_FRICTION_AUTO_SPEED_H 7000
 /* -------------------------------- 发射电机PID参数 ------------------------------- */
-// TODO: 速度期望应改为变量应对速度切换。初次参数调整已完成
 /* 右摩擦轮M3508电机PID参数 */
 /* 速度环 */
 #define RIGHT_KP_V             23
@@ -188,7 +155,6 @@
 #define LEFT_INTEGRAL_V     50
 #define LEFT_MAX_V          30000
 
-// TODO：PID参数初次微调已完成，期待后续微调
 /* 拨弹电机M2006电机PID参数 */
 /* 速度环 */
 #define TRIGGER_KP_V           10

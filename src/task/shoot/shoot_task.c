@@ -170,7 +170,7 @@ void shoot_task_entry(void* argument)
                 for(int i=0;i<SHT_MOTOR_NUM;i++) {
                     shoot_motor_ref[i] = 0;
                 }
-                load_ref_rpm = -4000;//拨弹电机下行,要改成角度环
+                load_ref_rpm = -4000;//拨弹电机下行,要加堵转?
                 // if(load_motor->measure.total_round <= 10) {
                 //     shoot_fdb.load_status == LOAD_BACK_OK;
                 // }else {

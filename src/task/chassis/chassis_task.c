@@ -240,26 +240,7 @@ static rt_err_t timeout_cb(rt_device_t dev, rt_size_t size)
     /*这两行不能注释，否则进死循环*/
     return 0;
 }
-// static float pitch_angle_cal(float total_angle)
-// {
-//     // float rad;
-//     // float screw_distance;
-//     // float total_distance;
-//     // // float temp_angle;
-//     // screw_distance = total_angle * PITCH_GEAR_RATIO * ANGLE_TO_DISTANCE;
-//     // abs_limit(screw_distance, SCREW_LEN);
-//     // if(screw_distance < 0)screw_distance = 0;
-//     // total_distance = BOTTOM_POLE_LEN + screw_distance;
-//     // rad = acos( (SQUARE_ABOVE_POLE_LEN + SQUARE(total_distance) - SQUARE_HEIGHT_LEN) / (DOUBLE_ABOVE_POLE_LEN * total_distance) );
-//     // // if( rad<-1)rad = -1;
-//     // // if(rad >1)rad = 1;
-//     // // temp_angle = rad * PI / 180.0f;
-//     //
-//     // // rad * PI / 180.0f;//转化为角度
-//     // // return rad;//转化为角度
-//     return 0;
-//
-// }
+
 int TIM_Init(void)
 {
     rt_err_t ret = RT_EOK;

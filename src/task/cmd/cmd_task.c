@@ -175,7 +175,7 @@ static void remote_to_cmd_sbus(void)
         switch(rc_now->sw3) {
             case RC_UP://stop
                 shoot_cmd.ctrl_mode = SHOOT_STOP;
-            shoot_cmd.friction_status = 0;
+                shoot_cmd.friction_status = 0;
             break;
             case RC_MI://shoot one
                 if(shoot_cmd.last_mode == SHOOT_STOP) {//防止从reverse->stop的过程中经过shootone
