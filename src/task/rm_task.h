@@ -102,6 +102,9 @@ struct shoot_cmd_msg
      float y_pos_gim;//tobe
      float yaw_degree;
      float pitch_degree;
+     /*堵转电流*/
+     rt_bool_t yaw_overcurrent;
+     rt_bool_t pitch_overcurrent;
      chassis_back_e back_mode;
      chassis_back_e last_mode;
  };

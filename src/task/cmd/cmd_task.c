@@ -122,7 +122,6 @@ static void cmd_sub_pull(void)
     sub_get_msg(sub_chassis,&chassis_fdb);
 }
 
-
 /* ------------------------------ 将遥控器数据转换为控制指令 ----------------------------- */
 /**
  * @brief 将遥控器数据转换为控制指令
@@ -206,8 +205,6 @@ static void remote_to_cmd_sbus(void)
             break;
         case RC_DN:
             break;
-
-
     }
 
 }
