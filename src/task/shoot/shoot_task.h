@@ -20,10 +20,8 @@ typedef enum
     /*发射模式*/
   SHOOT_STOP=0        ,     //射击关闭
   SHOOT_ONE=1         ,     //单发模式
-  SHOOT_THREE=2       ,     //三连发模式
-  SHOOT_COUNTINUE=3   ,     //自动射击
-  SHOOT_REVERSE=4     ,     //堵弹反转
-  SHOOT_AUTO=5        ,     //自动发射模式
+  SHOOT_REVERSE=2     ,     //堵弹反转
+
 } shoot_mode_e;
 /**
  * @brief 扳机模式

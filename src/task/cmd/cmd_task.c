@@ -178,20 +178,26 @@ static void remote_to_cmd_sbus(void)
             shoot_cmd.friction_status = 0;
             break;
             case RC_MI://shoot one
-                shoot_cmd.ctrl_mode = SHOOT_ONE;
-                switch(rc_now->sw2) {
-                    case RC_UP:
-                        shoot_cmd.friction_speed = HIGH_FREQUENCY;
+                if(shoot_cmd.last_mode == SHOOT_STOP) {//防止从reverse->stop的过程中经过shootone
+                    shoot_cmd.ctrl_mode = SHOOT_ONE;
+                    switch(rc_now->sw2) {
+                        case RC_UP:
+                            shoot_cmd.friction_speed = HIGH_FREQUENCY;
                         break;
-                    case RC_DN:
-                        shoot_cmd.friction_speed = LOW_FREQUENCY;
+                        case RC_DN:
+                            shoot_cmd.friction_speed = LOW_FREQUENCY;
                         break;
+                    }
+                    shoot_cmd.friction_status = 1;
+                    break;
+                }else {
+                    shoot_cmd.ctrl_mode == SHOOT_STOP;
+                    break;
                 }
-                shoot_cmd.friction_status = 1;
-            break;
             case RC_DN://shoot reverse
-                shoot_cmd.ctrl_mode = SHOOT_REVERSE;
-                shoot_cmd.friction_status = 0;
+                    shoot_cmd.ctrl_mode = SHOOT_REVERSE;
+                    shoot_cmd.friction_status = 0;
+                    break;
         }
     }
 
