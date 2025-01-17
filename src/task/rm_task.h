@@ -86,6 +86,7 @@ struct shoot_cmd_msg
 { // 发射器
     shoot_mode_e ctrl_mode;  // 当前发射器控制模式
     shoot_mode_e last_mode;  // 上一次发射器控制模式
+    float load_cmd_rpm;
 
     rt_bool_t friction_status;
     shoot_frequency_e friction_speed;//摩擦轮高低转速控制

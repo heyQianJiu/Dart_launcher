@@ -118,7 +118,7 @@ void shoot_task_entry(void* argument)
     LOG_I("Shoot Task Start");
     for (;;)
     {
-        debug_mode =1;
+        debug_mode = 1;
         sht_start = dwt_get_time_ms();
         /* 更新该线程所有的订阅者 */
         shoot_sub_pull();
@@ -142,18 +142,18 @@ void shoot_task_entry(void* argument)
                 for(int i=0;i<SHT_MOTOR_NUM;i++) {
                     shoot_motor_ref[i] = 0;
                 }
-                load_ref_rpm = 0;
+                load_ref_rpm = shoot_cmd.load_cmd_rpm;
                 break;
 
             case SHOOT_ONE:
                 if(shoot_cmd.friction_speed == HIGH_FREQUENCY) {
-                    ref_rpm_1 = 9000;
-                    ref_rpm_2 = 7000;
+                    ref_rpm_1 = 5950;
+                    ref_rpm_2 = 6050;
                 }else if(shoot_cmd.friction_speed == LOW_FREQUENCY) {
                     /*是否改成宏定义在menuconfig里？*/
                     if(debug_mode == 0) {
-                        ref_rpm_1 = 5500;
-                        ref_rpm_2 = 7000;
+                        ref_rpm_1 = 6000;
+                        ref_rpm_2 = 6100;
                     }else if(debug_mode == 1){
                         ref_rpm_1 = debug_ref1;
                         ref_rpm_2 = debug_ref2;
@@ -164,13 +164,22 @@ void shoot_task_entry(void* argument)
                 shoot_motor_ref[SHOOT_MOTOR3] = -ref_rpm_2;//摩擦轮常转
                 shoot_motor_ref[SHOOT_MOTOR4] = ref_rpm_2;
                 load_ref_rpm = 4000;//拨弹电机上行
+            //检测是否堵弹，堵弹反转一次
+            /* if (sht_motor[TRIGGER_MOTOR]->measure.real_current>=8000||reverse_cnt!=0)
+             {
+                shoot_cmd.ctrl_mode=SHOOT_REVERSE;
+                 if (reverse_cnt<100)
+                     reverse_cnt++;
+                 else
+                     reverse_cnt=0;
+             }*/
                 // shoot_fdb.trigger_status=SHOOT_OK;
                 break;
             case SHOOT_REVERSE:
                 for(int i=0;i<SHT_MOTOR_NUM;i++) {
                     shoot_motor_ref[i] = 0;
                 }
-                load_ref_rpm = -4000;//拨弹电机下行,要加堵转?
+                load_ref_rpm = -6000;//拨弹电机下行,要加堵转?
                 // if(load_motor->measure.total_round <= 10) {
                 //     shoot_fdb.load_status == LOAD_BACK_OK;
                 // }else {
