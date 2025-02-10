@@ -147,8 +147,8 @@ void shoot_task_entry(void* argument)
 
             case SHOOT_ONE:
                 if(shoot_cmd.friction_speed == HIGH_FREQUENCY) {
-                    ref_rpm_1 = 5950;
-                    ref_rpm_2 = 6050;
+                    ref_rpm_1 = 6075;//5950
+                    ref_rpm_2 = 6225;//6050
                 }else if(shoot_cmd.friction_speed == LOW_FREQUENCY) {
                     /*是否改成宏定义在menuconfig里？*/
                     if(debug_mode == 0) {
