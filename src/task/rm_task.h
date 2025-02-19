@@ -89,6 +89,7 @@ struct shoot_cmd_msg
     float load_cmd_rpm;
 
     rt_bool_t friction_status;
+
     shoot_frequency_e friction_speed;//摩擦轮高低转速控制
 };
 
