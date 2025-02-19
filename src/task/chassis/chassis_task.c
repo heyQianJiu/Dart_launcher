@@ -180,12 +180,12 @@ static rt_int16_t motor_control_yaw(dji_motor_measure_t measure)
     get_angle=measure.total_angle;
     get_speed=measure.speed_rpm;
 
-    /* 切换模式需要清空控制器历史状态 */
-    if(chassis_cmd.ctrl_mode != chassis_cmd.last_mode)
-    {
-        pid_clear(pid_angle);
-        pid_clear(pid_speed);
-    }
+    // /* 切换模式需要清空控制器历史状态 */
+    // if(chassis_cmd.ctrl_mode != chassis_cmd.last_mode)
+    // {
+    //     pid_clear(pid_angle);
+    //     pid_clear(pid_speed);
+    // }
 
     /*pid计算输出*/
     //用双环pid控制拨弹电机
