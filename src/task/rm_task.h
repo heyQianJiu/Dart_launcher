@@ -88,9 +88,14 @@ struct shoot_cmd_msg
     shoot_mode_e last_mode;  // 上一次发射器控制模式
     float load_cmd_rpm;
 
+    /*调试rpm用拨轮*/
+    debug_mode_e debug_mode;
+    float offset_rpm_1;
+    float offset_rpm_2;
+
     rt_bool_t friction_status;
 
-    shoot_frequency_e friction_speed;//摩擦轮高低转速控制
+    // shoot_frequency_e friction_speed;//摩擦轮高低转速控制
 };
 
 

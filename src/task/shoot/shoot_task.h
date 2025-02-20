@@ -29,15 +29,21 @@ typedef enum
  */
 typedef enum
 {
-
     /*扳机状态*/
     TRIGGER_ON=1      ,     //扳机开火状态
     TRIGGER_OFF=0     ,     //扳机闭火状态
     TRIGGER_ING=2     ,     //扳机持续状态
-
 } trigger_mode_e;
 /**
- * @brief 发射弹弹频
+ * @brief debug mode
+ */
+typedef  enum
+{
+    DEBUG_OFF =1,
+    DEBUG_ON =2,
+}debug_mode_e;
+/**
+ * @brief frequency
  */
 typedef enum
 {

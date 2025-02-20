@@ -184,10 +184,12 @@ static void remote_to_cmd_sbus(void)
                     shoot_cmd.ctrl_mode = SHOOT_ONE;
                     switch(rc_now->sw2) {
                         case RC_UP:
-                            shoot_cmd.friction_speed = HIGH_FREQUENCY;
+                            shoot_cmd.debug_mode = DEBUG_OFF;
                         break;
                         case RC_DN:
-                            shoot_cmd.friction_speed = LOW_FREQUENCY;
+                            shoot_cmd.debug_mode = DEBUG_ON;
+
+                            shoot_cmd.offset_rpm_1 = rc_now->ch5;
                         break;
                     }
                     shoot_cmd.friction_status = 1;

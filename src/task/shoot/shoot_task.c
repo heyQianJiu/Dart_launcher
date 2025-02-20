@@ -14,8 +14,7 @@
 #define DBG_LVL DBG_INFO
 #include <rtdbg.h>
 
-static int debug_ref1,debug_ref2;
-static int debug_mode;
+static int origin_ref1,origin_ref2;
 /* -------------------------------- 线程间通讯话题相关 ------------------------------- */
 static struct shoot_cmd_msg shoot_cmd;
 static struct shoot_fdb_msg shoot_fdb;
@@ -118,7 +117,6 @@ void shoot_task_entry(void* argument)
     LOG_I("Shoot Task Start");
     for (;;)
     {
-        debug_mode = 1;
         sht_start = dwt_get_time_ms();
         /* 更新该线程所有的订阅者 */
         shoot_sub_pull();
@@ -146,24 +144,24 @@ void shoot_task_entry(void* argument)
                 break;
 
             case SHOOT_ONE:
-                if(shoot_cmd.friction_speed == HIGH_FREQUENCY) {
+
+                if(shoot_cmd.debug_mode == DEBUG_OFF) {
                     //16m
                     // ref_rpm_1 = 5950;
                     // ref_rpm_2 = 6050;
                     //25m
-                    // ref_rpm_1 = 8065;
-                    // ref_rpm_2 = 8350;
-                    ref_rpm_1 = 7965;
-                    ref_rpm_2 = 7925;
-                }else if(shoot_cmd.friction_speed == LOW_FREQUENCY) {
+                    // ref_rpm_1 = 8400;
+                    // ref_rpm_2 = 8400;
+                    ref_rpm_1 = 9000;
+                    ref_rpm_2 = 9000;
+                }else if(shoot_cmd.debug_mode == DEBUG_ON) {
                     /*是否改成宏定义在menuconfig里？*/
-                    if(debug_mode == 0) {
-                        ref_rpm_1 = 6000;
-                        ref_rpm_2 = 6100;
-                    }else if(debug_mode == 1){
-                        ref_rpm_1 = debug_ref1;
-                        ref_rpm_2 = debug_ref2;
-                    }
+                    origin_ref1 = 6000;
+                    origin_ref2 = 6100;
+
+                    ref_rpm_1 = origin_ref1;
+                    ref_rpm_2 = origin_ref2;
+
                 }
                 shoot_motor_ref[SHOOT_MOTOR1] = -ref_rpm_1 ;//摩擦轮常转
                 shoot_motor_ref[SHOOT_MOTOR2] = ref_rpm_1;

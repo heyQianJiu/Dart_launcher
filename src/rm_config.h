@@ -35,37 +35,18 @@
 /* ---------------------------------- 遥控器相关 --------------------------------- */
  /* 遥控器通道最大值 */
 #define RC_MAX_VALUE      784.0f
- /* DBUS遥控器通道最大值 */
-#define RC_DBUS_MAX_VALUE      660.0f
-#define RC_RATIO               0.0009f
-#define KB_RATIO               0.010f
-/* 遥控器模式下的底盘最大速度限制 */
-/* 底盘平移速度 */
-#define CHASSIS_RC_MOVE_RATIO_X 1.0f
-/* 底盘前进速度 */
-#define CHASSIS_RC_MOVE_RATIO_Y 0.8f
-/* 底盘旋转速度，只在底盘开环模式下使用 */
-#define CHASSIS_RC_MOVE_RATIO_R 1.0f
+/* SBUS遥控器通道最大值 */
+#define RC_SBUS_MAX_VALUE 783.0f
+#define RC_SBUS_MIN_VALUE -784.0f
 
-/* 鼠标键盘模式下的底盘最大速度限制 */
-/* 底盘平移速度 */
-#define CHASSIS_PC_MOVE_RATIO_X 1.0f
-/* 底盘前进速度 */
-#define CHASSIS_PC_MOVE_RATIO_Y 1.0f
-/* 底盘旋转速度，只在底盘开环模式下使用 */
-#define CHASSIS_PC_MOVE_RATIO_R 5.0f
-
-/* 遥控器模式下的云台速度限制 */
-/* 云台pitch轴速度 */
-#define GIMBAL_RC_MOVE_RATIO_PIT 0.5f
-/* 云台yaw轴速度 */
-#define GIMBAL_RC_MOVE_RATIO_YAW 0.5f
-
-/* 鼠标键盘模式下的云台速度限制 */
-/* 云台pitch轴速度 */
-#define GIMBAL_PC_MOVE_RATIO_PIT 0.1f
-/* 云台yaw轴速度 */
-#define GIMBAL_PC_MOVE_RATIO_YAW 0.5f
+// /* 遥控器模式下的底盘最大速度限制 */
+// /* 底盘旋转速度，只在底盘开环模式下使用 */
+// #define CHASSIS_RC_MOVE_RATIO_R 1.0f
+// /* 遥控器模式下的云台速度限制 */
+// /* 云台pitch轴速度 */
+// #define GIMBAL_RC_MOVE_RATIO_PIT 0.5f
+// /* 云台yaw轴速度 */
+// #define GIMBAL_RC_MOVE_RATIO_YAW 0.5f
 
 /* 遥控器拨杆对应档位值 */
 #define RC_UP_VALUE 240
@@ -73,14 +54,11 @@
 #define RC_DN_VALUE 15
 
 /* ---------------------------------- 底盘相关 ---------------------------------- */
-#define SCREW_LEN  261.2f
-#define ABOVE_POLE_LEN 482.5f
-#define HEIGHT_LEN 304.3f
-#define BOTTOM_POLE_LEN 357.2f
-
-#define SQUARE_ABOVE_POLE_LEN 232806.25f
-#define SQUARE_HEIGHT_LEN  92598.49f
-#define DOUBLE_ABOVE_POLE_LEN 965.0f
+/*acos()会卡死，角度不解算，直接用imu的数据*/
+// #define SCREW_LEN  261.2f
+// #define ABOVE_POLE_LEN 482.5f
+// #define HEIGHT_LEN 304.3f
+// #define BOTTOM_POLE_LEN 357.2f
 
 /******** 底盘电机使用3508 *******/
 /* 3508底盘电机减速比 */
@@ -101,10 +79,10 @@
 /* pitch轴最大俯角 */
 #define PIT_ANGLE_MIN    45.0f
 
-// /* 云台控制周期 (ms) */
-// #define GIMBAL_PERIOD 1
-// /* 云台回中初始化时间 (ms) */
-// #define BACK_CENTER_TIME 100
+/* 云台控制周期 (ms) */
+#define GIMBAL_PERIOD 1
+/* 云台回中初始化时间 (ms) */
+#define BACK_CENTER_TIME 100
 
 /* -------------------------------- 底盘电机PID参数 ------------------------------- */
 /* 云台yaw轴电机PID参数 */
