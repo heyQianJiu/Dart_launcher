@@ -143,8 +143,8 @@ void shoot_task_entry(void* argument)
                 load_ref_rpm = shoot_cmd.load_cmd_rpm;
                 break;
 
-            case SHOOT_ONE:
-
+            case SHOOT_ONE://应该设置为发射一发就停止，连续发射设置在continue
+            case SHOOT_CONTINUE:
                 if(shoot_cmd.debug_mode == DEBUG_OFF) {
                     //16m
                     // ref_rpm_1 = 5950;

@@ -19,9 +19,10 @@ typedef enum
 {
     /*发射模式*/
   SHOOT_STOP=0        ,     //射击关闭
-  SHOOT_ONE=1         ,     //单发模式
-  SHOOT_REVERSE=2     ,     //堵弹反转
-  SHOOT_INIT          ,     //初始化,用于堵转到极限以计算位置
+  SHOOT_ONE=1         ,     //单发模式（比赛用）
+  SHOOT_CONTINUE=2,         //连续发射（日常用）
+  SHOOT_REVERSE=3     ,     //堵弹反转
+  SHOOT_INIT=4          ,     //初始化,用于堵转到极限以计算位置
 
 } shoot_mode_e;
 /**

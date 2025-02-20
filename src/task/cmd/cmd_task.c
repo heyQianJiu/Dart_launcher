@@ -169,8 +169,8 @@ static void remote_to_cmd_sbus(void)
 
     /*--------------------------------------------------发射状态机--------------------------------------------------------------*/
     //ch6 load motor(shoot one在shoot task内实现）
-    //sw2 up(friction on)
-    //sw3 up(friction highspeed)
+    //sw2 up(DEBUG ON)
+    //sw3 up(SHOOT STOP)
     if(rc_now->sw4 == RC_DN) {//不是全局失能状态，允许发射
         switch(rc_now->sw3) {
             case RC_UP://stop
@@ -179,17 +179,17 @@ static void remote_to_cmd_sbus(void)
                 shoot_cmd.load_cmd_rpm = 8000 *(float)( rc_now->ch2) / -784.0;//
 
             break;
-            case RC_MI://shoot one
+            case RC_MI://shoot CONTINUE
                 if(shoot_cmd.last_mode == SHOOT_STOP) {//防止从reverse->stop的过程中经过shootone
                     shoot_cmd.ctrl_mode = SHOOT_ONE;
                     switch(rc_now->sw2) {
                         case RC_UP:
-                            shoot_cmd.debug_mode = DEBUG_OFF;
+                            shoot_cmd.debug_mode = DEBUG_ON;
+                            shoot_cmd.offset_rpm_1 = rc_now->ch5;
+                            shoot_cmd.offset_rpm_2 = rc_now->ch6;
                         break;
                         case RC_DN:
-                            shoot_cmd.debug_mode = DEBUG_ON;
-
-                            shoot_cmd.offset_rpm_1 = rc_now->ch5;
+                            shoot_cmd.debug_mode = DEBUG_OFF;
                         break;
                     }
                     shoot_cmd.friction_status = 1;
