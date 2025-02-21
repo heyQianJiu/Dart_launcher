@@ -34,7 +34,7 @@
 
 /* ---------------------------------- 遥控器相关 --------------------------------- */
  /* 遥控器通道最大值 */
-#define RC_MAX_VALUE      784.0f
+#define RC_MAX_VALUE      784.0f//好像没有用到
 /* SBUS遥控器通道最大值 */
 #define RC_SBUS_MAX_VALUE 783.0f
 #define RC_SBUS_MIN_VALUE -784.0f
