@@ -181,15 +181,13 @@ static void remote_to_cmd_sbus(void)
             break;
             case RC_MI://shoot CONTINUE
                 if(shoot_cmd.last_mode == SHOOT_STOP) {//防止从reverse->stop的过程中经过shootone
-                    shoot_cmd.ctrl_mode = SHOOT_ONE;
+                    // shoot_cmd.ctrl_mode = SHOOT_ONE;
                     switch(rc_now->sw2) {
                         case RC_UP:
-                            shoot_cmd.debug_mode = DEBUG_ON;
-                            shoot_cmd.offset_rpm_1 = rc_now->ch5;
-                            shoot_cmd.offset_rpm_2 = rc_now->ch6;
+                            shoot_cmd.ctrl_mode = SHOOT_CONTINUE;
                         break;
                         case RC_DN:
-                            shoot_cmd.debug_mode = DEBUG_OFF;
+                            shoot_cmd.ctrl_mode = SHOOT_ONE;
                         break;
                     }
                     shoot_cmd.friction_status = 1;
