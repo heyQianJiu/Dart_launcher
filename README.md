@@ -13,3 +13,5 @@ sw4 全局失能（up），使能（dn）
 ch3 左侧遥杆 上下，pitch
 
 ch4 左侧遥杆 左右，yaw
+
+ch5 右侧摇杆 上下，load

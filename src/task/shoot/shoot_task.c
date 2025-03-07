@@ -112,7 +112,6 @@ void shoot_task_entry(void* argument)
     shoot_cmd.ctrl_mode=SHOOT_STOP;
     shoot_cmd.friction_status = 0;
     LOG_I("Shoot Task Start");
-    ref_rpm_1 = 7000;
     for (;;)
     {
         sht_start = dwt_get_time_ms();

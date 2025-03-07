@@ -28,6 +28,7 @@ static rc_obj_t rc_obj[2];   // [0]:当前数据NOW,[1]:上一次的数据LAST
 // TODO: 目前遥控器发送端关闭并不会检测为丢失，只有接收端异常才会判断为离线，
 //       后续需要修改判断条件，预期效果是发送端关闭后判断为离线
 static rt_timer_t rc_timer;  // 定时器，用于判断遥控器是否在线
+static lost_flag;//for task
 
 /**
  * @brief 遥控器sbus数据解析
@@ -90,9 +91,10 @@ static rt_err_t sbus_rc_decode(uint8_t *buff){
  */
 static void rc_lost_callback(void *paramete)
 {
-    // rt_memset(&rc_obj[NOW], 0, sizeof(rc_obj[NOW]));
-    // rc_obj[NOW].sw1 = 1;
-    // rc_obj[NOW].sw2 = 1;
+    rt_memset(&rc_obj[NOW], 0, sizeof(rc_obj[NOW]));
+    rc_obj[NOW].sw1 = 1;
+    rc_obj[NOW].sw2 = 1;
+    lost_flag = 1;//for test
     LOG_W("Sbus RC lost!");
 }
 
